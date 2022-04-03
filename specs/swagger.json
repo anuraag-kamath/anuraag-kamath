@@ -1,0 +1,3462 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "These are the APIs that the appveen Smart Contracts platform provides",
+    "version": "1.0.0",
+    "title": "appveen Smart Contracts",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "ql@appveen.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "smartcontracts.demo.appveen.com",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Master Data",
+      "description": "APIs to Fetch Smart Contracts master data"
+    },
+    {
+      "name": "Deals",
+      "description": "APIs to Create, Fetch, Pause, Resume, Close a deal"
+    },
+    {
+      "name": "Participants",
+      "description": "APIs to Onboard, Amend, Offboard, Fetch participants of a deal along with attaching and detaching Virtual Accounts"
+    },
+    {
+      "name": "Transaction",
+      "description": "APIs to Initiate, Fetch, Hold, Release, Cancel transactions in Smart Contracts"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/mdm/api/products": {
+      "get": {
+        "tags": [
+          "Master Data"
+        ],
+        "summary": "Fetch products",
+        "description": "",
+        "operationId": "fetchProducts",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "JSON string of filter parameters to fetch",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "select",
+            "in": "query",
+            "description": "Fields that are required as part of response",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Fields on which sorting needs to be applied",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number of the response payload",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "pageCount",
+            "in": "query",
+            "description": "Number of records to return per page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "totalCount",
+            "in": "query",
+            "description": "Whether total count matching the filter criteria needs to be returned in the response",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "$ref": "#/definitions/productResponse"
+            }
+          }
+        }
+      }
+    },
+    "/mdm/api/businessSegments": {
+      "get": {
+        "tags": [
+          "Master Data"
+        ],
+        "summary": "Fetch business segments",
+        "description": "",
+        "operationId": "fetchBusinessSegments",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "JSON string of filter parameters to fetch",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "select",
+            "in": "query",
+            "description": "Fields that are required as part of response",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Fields on which sorting needs to be applied",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number of the response payload",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "pageCount",
+            "in": "query",
+            "description": "Number of records to return per page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "totalCount",
+            "in": "query",
+            "description": "Whether total count matching the filter criteria needs to be returned in the response",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "$ref": "#/definitions/businessSegmentsResponse"
+            }
+          }
+        }
+      }
+    },
+    "/mdm/api/partyResponsibilties": {
+      "get": {
+        "tags": [
+          "Master Data"
+        ],
+        "summary": "Fetch party responsibilities",
+        "description": "",
+        "operationId": "fetchPartyResponsibilities",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "JSON string of filter parameters to fetch",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "select",
+            "in": "query",
+            "description": "Fields that are required as part of response",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Fields on which sorting needs to be applied",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number of the response payload",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "pageCount",
+            "in": "query",
+            "description": "Number of records to return per page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "totalCount",
+            "in": "query",
+            "description": "Whether total count matching the filter criteria needs to be returned in the response",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "$ref": "#/definitions/partyResponsibilitiesResponse"
+            }
+          }
+        }
+      }
+    },
+    "/mdm/api/holidays": {
+      "get": {
+        "tags": [
+          "Master Data"
+        ],
+        "summary": "Fetch holidays",
+        "description": "",
+        "operationId": "fetchHolidays",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "JSON string of filter parameters to fetch",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "select",
+            "in": "query",
+            "description": "Fields that are required as part of response",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Fields on which sorting needs to be applied",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number of the response payload",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "pageCount",
+            "in": "query",
+            "description": "Number of records to return per page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "totalCount",
+            "in": "query",
+            "description": "Whether total count matching the filter criteria needs to be returned in the response",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "$ref": "#/definitions/holidaysResponse"
+            }
+          }
+        }
+      }
+    },
+    "/deal/api": {
+      "get": {
+        "tags": [
+          "Deals"
+        ],
+        "summary": "Fetch Deals",
+        "description": "",
+        "operationId": "fetchDeals",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "$ref": "#/definitions/dealRequest"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Deals"
+        ],
+        "summary": "Create a deal",
+        "description": "",
+        "operationId": "createDeal",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Deal Request with Basic Details",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/dealRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "$ref": "#/definitions/dealResponse"
+            }
+          },
+          "400": {
+            "description": "Functional Validation Failure",
+            "schema": {
+              "$ref": "#/definitions/inline_response_400"
+            }
+          }
+        }
+      }
+    },
+    "/deal/api/{dealRefId}": {
+      "put": {
+        "tags": [
+          "Deals"
+        ],
+        "summary": "Amend a deal",
+        "description": "",
+        "operationId": "amendDeal",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "dealRefId",
+            "in": "path",
+            "description": "Deal that needs to be amended",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Deal Request with Basic Details",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/dealRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "400": {
+            "description": "Functional Validation Failure",
+            "schema": {
+              "$ref": "#/definitions/inline_response_400"
+            }
+          }
+        }
+      }
+    },
+    "/deal/api/{dealRefId}/pause": {
+      "put": {
+        "tags": [
+          "Deals"
+        ],
+        "summary": "Pause a deal",
+        "description": "",
+        "operationId": "pauseDeal",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "dealRefId",
+            "in": "path",
+            "description": "Deal that needs to be amended",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "400": {
+            "description": "Functional Validation Failure",
+            "schema": {
+              "$ref": "#/definitions/inline_response_400_1"
+            }
+          }
+        }
+      }
+    },
+    "/deal/api/{dealRefId}/resume": {
+      "put": {
+        "tags": [
+          "Deals"
+        ],
+        "summary": "Resume a paused deal",
+        "description": "",
+        "operationId": "resumeDeal",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "dealRefId",
+            "in": "path",
+            "description": "Deal that needs to be amended",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "400": {
+            "description": "Functional Validation Failure",
+            "schema": {
+              "$ref": "#/definitions/inline_response_400_2"
+            }
+          }
+        }
+      }
+    },
+    "/deal/api/{dealRefId}/close": {
+      "put": {
+        "tags": [
+          "Deals"
+        ],
+        "summary": "Close a deal",
+        "description": "",
+        "operationId": "closeDeal",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "dealRefId",
+            "in": "path",
+            "description": "Deal that needs to be closed",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "400": {
+            "description": "Functional Validation Failure",
+            "schema": {
+              "$ref": "#/definitions/inline_response_400_3"
+            }
+          }
+        }
+      }
+    },
+    "/mdm/api/party": {
+      "get": {
+        "tags": [
+          "Participants"
+        ],
+        "summary": "Fetch Participants",
+        "description": "",
+        "operationId": "fetchParticipant",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Fields that are required as part of response",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "select",
+            "in": "query",
+            "description": "Fields that are required as part of response",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number of the response payload",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "pageCount",
+            "in": "query",
+            "description": "Number of records to return per page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "totalCount",
+            "in": "query",
+            "description": "Whether total count matching the filter criteria needs to be returned in the response",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "$ref": "#/definitions/fetchPartyResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Participants"
+        ],
+        "summary": "Onboard a participant in a deal",
+        "description": "",
+        "operationId": "onboardParticipant",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Participant request includes contacts/accounts/basic details/attributes",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/partyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "$ref": "#/definitions/partyResponse"
+            }
+          },
+          "400": {
+            "description": "Functional Validation Failure",
+            "schema": {
+              "$ref": "#/definitions/inline_response_400_4"
+            }
+          }
+        }
+      }
+    },
+    "/mdm/api/party/{partyId}": {
+      "put": {
+        "tags": [
+          "Participants"
+        ],
+        "summary": "Amend a participant in a deal",
+        "description": "",
+        "operationId": "amendParticipant",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "partyId",
+            "in": "path",
+            "description": "The partyId that needs to be amended",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Participant request includes contacts/accounts/basic details/attributes",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/partyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "$ref": "#/definitions/partyResponse"
+            }
+          },
+          "400": {
+            "description": "Functional Validation Failure",
+            "schema": {
+              "$ref": "#/definitions/inline_response_400_5"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Participants"
+        ],
+        "summary": "Offboard a participant in a deal",
+        "description": "",
+        "operationId": "offboardParticipant",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "partyId",
+            "in": "path",
+            "description": "partyId that needs to be offboarded from the deal",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "400": {
+            "description": "Functional Validation Failure",
+            "schema": {
+              "$ref": "#/definitions/inline_response_400_6"
+            }
+          }
+        }
+      }
+    },
+    "/mdm/api/party/{partyId}/debitAccount": {
+      "post": {
+        "tags": [
+          "Participants"
+        ],
+        "summary": "attach a debit physical/virtual account for the party",
+        "description": "",
+        "operationId": "attachDebitAccount",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "partyId",
+            "in": "path",
+            "description": "partyId that needs to be attached",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Debit physical or virtual account details",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/debitAccountRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "$ref": "#/definitions/debitAccountResponse"
+            }
+          },
+          "400": {
+            "description": "Functional Validation Failure",
+            "schema": {
+              "$ref": "#/definitions/inline_response_400_7"
+            }
+          }
+        }
+      }
+    },
+    "/mdm/api/party/{partyId}/debitAccount/{accountId}}": {
+      "delete": {
+        "tags": [
+          "Participants"
+        ],
+        "summary": "attach a debit physical/virtual account for the party",
+        "description": "",
+        "operationId": "detachDebitAccount",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "partyId",
+            "in": "path",
+            "description": "partyId that needs to be attached",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "description": "partyId that needs to be attached",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "400": {
+            "description": "Functional Validation Failure",
+            "schema": {
+              "$ref": "#/definitions/inline_response_400_8"
+            }
+          }
+        }
+      }
+    },
+    "/orchestrator/api/transaction": {
+      "get": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "Fetch transactions",
+        "description": "",
+        "operationId": "getTransaction",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "content type along with the version of the API being invoked",
+            "required": true,
+            "type": "string",
+            "default": "application/json;version=1"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Auth token to access the endpoint for the deal",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "X-SC-TrackingId",
+            "in": "header",
+            "description": "Tracking ID to trace the request for logging/debugging purposes",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "JSON string of filter parameters to fetch",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "select",
+            "in": "query",
+            "description": "Fields that are required as part of response",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Fields on which sorting needs to be applied",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number of the response payload",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "pageCount",
+            "in": "query",
+            "description": "Number of records to return per page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "totalCount",
+            "in": "query",
+            "description": "Whether total count matching the filter criteria needs to be returned in the response",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "$ref": "#/definitions/fetchTransactionResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "Initiate a transaction",
+        "description": "",
+        "operationId": "initiateTransaction",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "content type along with the version of the API being invoked",
+            "required": true,
+            "type": "string",
+            "default": "application/json;version=1"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Auth token to access the endpoint for the deal",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "X-SC-TrackingId",
+            "in": "header",
+            "description": "Tracking ID to trace the request for logging/debugging purposes",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Split enabled transaction request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/transactionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "$ref": "#/definitions/transactionResponse"
+            }
+          },
+          "400": {
+            "description": "Functional Validation Failure",
+            "schema": {
+              "$ref": "#/definitions/transactionErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/orchestrator/api/transaction/{endToEndId}/hold": {
+      "put": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "Hold the entire transaction",
+        "description": "",
+        "operationId": "holdTransaction",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "content type along with the version of the API being invoked",
+            "required": true,
+            "type": "string",
+            "default": "application/json;version=1"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Auth token to access the endpoint for the deal",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "X-SC-TrackingId",
+            "in": "header",
+            "description": "Tracking ID to trace the request for logging/debugging purposes",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endToEndId",
+            "in": "path",
+            "description": "endToEnd reference generated during transaction initiation that needs to be held",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "400": {
+            "description": "Functional Validation Failure",
+            "schema": {
+              "$ref": "#/definitions/transactionActionErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/orchestrator/api/transaction/{endToEndId}/hold/{fragmentId}": {
+      "put": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "Hold a fragment of the transaction",
+        "description": "",
+        "operationId": "holdFragmentTransaction",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "content type along with the version of the API being invoked",
+            "required": true,
+            "type": "string",
+            "default": "application/json;version=1"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Auth token to access the endpoint for the deal",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "X-SC-TrackingId",
+            "in": "header",
+            "description": "Tracking ID to trace the request for logging/debugging purposes",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endToEndId",
+            "in": "path",
+            "description": "endToEnd reference generated during transaction initiation that needs to be held",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "fragmentId",
+            "in": "path",
+            "description": "fragment of the transaction that needs to be held",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "400": {
+            "description": "Functional Validation Failure",
+            "schema": {
+              "$ref": "#/definitions/transactionActionErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/orchestrator/api/transaction/{endToEndId}/release": {
+      "put": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "Release the held transaction",
+        "description": "",
+        "operationId": "releaseTransaction",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "content type along with the version of the API being invoked",
+            "required": true,
+            "type": "string",
+            "default": "application/json;version=1"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Auth token to access the endpoint for the deal",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "X-SC-TrackingId",
+            "in": "header",
+            "description": "Tracking ID to trace the request for logging/debugging purposes",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endToEndId",
+            "in": "path",
+            "description": "endToEnd reference generated during transaction initiation that needs to be cancelled",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "400": {
+            "description": "Functional Validation Failure",
+            "schema": {
+              "$ref": "#/definitions/transactionActionErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/orchestrator/api/transaction/{endToEndId}/release/{fragmentId}": {
+      "put": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "Release the held fragment of the transaction",
+        "description": "",
+        "operationId": "releaseFragmentTransaction",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "content type along with the version of the API being invoked",
+            "required": true,
+            "type": "string",
+            "default": "application/json;version=1"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Auth token to access the endpoint for the deal",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "X-SC-TrackingId",
+            "in": "header",
+            "description": "Tracking ID to trace the request for logging/debugging purposes",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endToEndId",
+            "in": "path",
+            "description": "endToEnd reference generated during transaction initiation that needs to be held",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "fragmentId",
+            "in": "path",
+            "description": "fragment of the transaction that needs to be cancelled",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "400": {
+            "description": "Functional Validation Failure",
+            "schema": {
+              "$ref": "#/definitions/transactionActionErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/orchestrator/api/transaction/{endToEndId}/cancel": {
+      "put": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "Cancel the entire transaction",
+        "description": "",
+        "operationId": "cancelTransaction",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "content type along with the version of the API being invoked",
+            "required": true,
+            "type": "string",
+            "default": "application/json;version=1"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Auth token to access the endpoint for the deal",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "X-SC-TrackingId",
+            "in": "header",
+            "description": "Tracking ID to trace the request for logging/debugging purposes",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endToEndId",
+            "in": "path",
+            "description": "endToEnd reference generated during transaction initiation that needs to be cancelled",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "400": {
+            "description": "Functional Validation Failure",
+            "schema": {
+              "$ref": "#/definitions/transactionActionErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/orchestrator/api/transaction/{endToEndId}/cancel/{fragmentId}": {
+      "put": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "Cancel a fragment of the transaction",
+        "description": "",
+        "operationId": "cancelFragmentTransaction",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "content type along with the version of the API being invoked",
+            "required": true,
+            "type": "string",
+            "default": "application/json;version=1"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Auth token to access the endpoint for the deal",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "X-SC-TrackingId",
+            "in": "header",
+            "description": "Tracking ID to trace the request for logging/debugging purposes",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endToEndId",
+            "in": "path",
+            "description": "endToEnd reference generated during transaction initiation that needs to be held",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "fragmentId",
+            "in": "path",
+            "description": "fragment of the transaction that needs to be cancelled",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "400": {
+            "description": "Functional Validation Failure",
+            "schema": {
+              "$ref": "#/definitions/transactionActionErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "productResponse": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Page number of the response"
+        },
+        "pageCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Number of records in the current page"
+        },
+        "totalCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Total number of records matching the filter criteria. Returned only if totalCount is passed in query params as true"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productResponse_data"
+          }
+        }
+      },
+      "example": {
+        "page": 1,
+        "pageCount": 1,
+        "totalCount": 10,
+        "data": [
+          {
+            "_id": "T1018",
+            "name": "Marketplace Settlement",
+            "description": "Marketplace Settlement",
+            "attributes": [
+              {
+                "_id": "5fc9d021ee1c9f3387a7f1c4",
+                "groupName": "Payment Configurations",
+                "description": "Payment Configurations",
+                "attributes": [
+                  {
+                    "values": [
+                      "Yes",
+                      "No"
+                    ],
+                    "_id": "5fc9d021ee1c9fd580a7f1c5",
+                    "label": "Retry Enabled",
+                    "description": "Retry Enabled",
+                    "type": "List",
+                    "order": 1
+                  },
+                  {
+                    "values": [
+                      "Yes",
+                      "No"
+                    ],
+                    "_id": "5fc9d021ee1c9f78b6a7f1c6",
+                    "label": "Grouped payments",
+                    "description": "Grouped payments",
+                    "type": "List",
+                    "order": 2
+                  },
+                  {
+                    "values": [
+                      "Yes",
+                      "No"
+                    ],
+                    "_id": "5fc9d021ee1c9f8263a7f1c7",
+                    "label": "All or Nothing",
+                    "description": "All or Nothing",
+                    "type": "List",
+                    "order": 3
+                  },
+                  {
+                    "values": [
+                      "Yes",
+                      "No"
+                    ],
+                    "_id": "5fc9d021ee1c9f0509a7f1c8",
+                    "label": "Implicit Dependency",
+                    "description": "Implicit Dependency",
+                    "type": "List",
+                    "order": 4
+                  }
+                ]
+              },
+              {
+                "_id": "5f3e78b89defbd11ac1ecd4b",
+                "attributes": [
+                  {
+                    "values": [],
+                    "_id": "5f3e78b89defbd20411ecd4c",
+                    "label": "Electronics",
+                    "description": "Electronics",
+                    "type": "Number",
+                    "order": 1
+                  },
+                  {
+                    "values": [],
+                    "_id": "5f3e78b89defbd7fc61ecd4d",
+                    "label": "Apparel",
+                    "description": "Apparel",
+                    "type": "Number",
+                    "order": 2
+                  },
+                  {
+                    "values": [],
+                    "_id": "5f3e78b89defbdfed31ecd4e",
+                    "label": "Kitchenware",
+                    "description": "Kitchenware",
+                    "type": "Number",
+                    "order": 3
+                  }
+                ],
+                "groupName": "Marketplace Commission by category - %",
+                "description": "Marketplace Commission by category - %"
+              },
+              {
+                "_id": "5f3e78b89defbd25cf1ecd4f",
+                "attributes": [
+                  {
+                    "values": [],
+                    "_id": "5f3e78b89defbd56e51ecd50",
+                    "label": "0-500",
+                    "description": "0-500",
+                    "type": "Number",
+                    "order": 1
+                  },
+                  {
+                    "values": [],
+                    "_id": "5f3e78b89defbd44041ecd51",
+                    "label": "501-1000",
+                    "description": "501-1000",
+                    "type": "Number",
+                    "order": 2
+                  },
+                  {
+                    "values": [],
+                    "_id": "5f3e78b89defbdd3d51ecd52",
+                    "label": "1001-*",
+                    "description": "1001-*",
+                    "type": "Number",
+                    "order": 3
+                  }
+                ],
+                "groupName": "Gateway Fixed fee by transaction value - USD",
+                "description": "Gateway Fixed fee by transaction value - USD"
+              },
+              {
+                "_id": "5f3e78b89defbd80fe1ecd5d",
+                "attributes": [
+                  {
+                    "values": [],
+                    "_id": "5f3e78b89defbdbbb41ecd5e",
+                    "label": "Platinum Seller",
+                    "description": "Platinum Seller",
+                    "type": "Number",
+                    "order": 1
+                  },
+                  {
+                    "values": [],
+                    "_id": "5f3e78b89defbd3e161ecd5f",
+                    "label": "Gold Seller",
+                    "description": "Gold Seller",
+                    "type": "Number",
+                    "order": 2
+                  },
+                  {
+                    "values": [],
+                    "_id": "5f3e78b89defbd49631ecd60",
+                    "label": "Silver Seller",
+                    "description": "Silver Seller",
+                    "type": "Number",
+                    "order": 3
+                  }
+                ],
+                "groupName": "Default settlement days by category",
+                "description": "Default settlement days by category"
+              }
+            ],
+            "purposes": [
+              {
+                "_id": "60ccae8844a6b3336312e1c6",
+                "name": "Settlement"
+              },
+              {
+                "_id": "60ccae8844a6b38c1312e1c7",
+                "name": "Refund"
+              },
+              {
+                "_id": "60ccae8844a6b3ab0a12e1c8",
+                "name": "Commission"
+              },
+              {
+                "_id": "60ccae8844a6b31c2b12e1c9",
+                "name": "FixedFee"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "debitAccountRequest": {
+      "type": "object",
+      "properties": {
+        "accountNumber": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string",
+          "format": "nullable"
+        },
+        "status": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "closedOn": {
+          "type": "string"
+        },
+        "extendedAttributes": {
+          "$ref": "#/definitions/debitAccountRequest_extendedAttributes"
+        }
+      },
+      "example": {
+        "accountNumber": "1232000101",
+        "country": "GB",
+        "currency": "EUR",
+        "status": "Active",
+        "name": "Settlement Account - EUR",
+        "extendedAttributes": {
+          "type": "Physical Account"
+        }
+      }
+    },
+    "debitAccountResponse": {
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "accountId": "GB-ES-0221-26-GB-GBP-1231010312301"
+      }
+    },
+    "businessSegmentsResponse": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Page number of the response"
+        },
+        "pageCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Number of records in the current page"
+        },
+        "totalCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Total number of records matching the filter criteria. Returned only if totalCount is passed in query params as true"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/businessSegmentsResponse_data"
+          }
+        }
+      },
+      "example": {
+        "page": 1,
+        "pageCount": 1,
+        "totalCount": 10,
+        "data": [
+          {
+            "_id": "BS1013",
+            "name": "Business to Customer e-Commerce",
+            "description": "Business to Customer e-Commerce"
+          }
+        ]
+      }
+    },
+    "partyResponsibilitiesResponse": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Page number of the response"
+        },
+        "pageCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Number of records in the current page"
+        },
+        "totalCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Total number of records matching the filter criteria. Returned only if totalCount is passed in query params as true"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/partyResponsibilitiesResponse_data"
+          }
+        }
+      },
+      "example": {
+        "page": 1,
+        "pageCount": 1,
+        "totalCount": 10,
+        "data": [
+          {
+            "_id": "PR1028",
+            "name": "Merchant",
+            "description": "Merchant",
+            "attributes": [
+              {
+                "mandatory": true,
+                "values": [
+                  "AE",
+                  "BH",
+                  "SG",
+                  "GB",
+                  "IN",
+                  "NL",
+                  "DE",
+                  "US"
+                ],
+                "_id": "60ccb73b44a6b37cb212e1fd",
+                "label": "Country of incorporation",
+                "description": "Country of incorporation",
+                "type": "List"
+              },
+              {
+                "mandatory": false,
+                "values": [],
+                "_id": "60ccb73b44a6b37a9012e1fe",
+                "label": "Registered Address",
+                "description": "Registered Address",
+                "type": "String"
+              },
+              {
+                "mandatory": false,
+                "values": [],
+                "_id": "60ccb73b44a6b32fbd12e1ff",
+                "label": "Pin/Zip",
+                "description": "Pin/Zip",
+                "type": "String"
+              },
+              {
+                "mandatory": false,
+                "values": [
+                  "Merchant",
+                  "Master"
+                ],
+                "_id": "60ccb73b44a6b3393012e200",
+                "label": "MDR Type",
+                "description": "MDR Type",
+                "type": "List"
+              },
+              {
+                "mandatory": false,
+                "values": [],
+                "_id": "60ccb73b44a6b345d612e201",
+                "label": "MDR Percentage",
+                "description": "MDR Percentage",
+                "type": "Number"
+              },
+              {
+                "mandatory": false,
+                "values": [],
+                "_id": "60ccb73b44a6b37bd012e202",
+                "label": "MDR Fixed Amount",
+                "description": "MDR Fixed Amount",
+                "type": "Number"
+              },
+              {
+                "mandatory": false,
+                "values": [],
+                "_id": "60ccb73b44a6b3dcb612e203",
+                "label": "MDR Capped Amount",
+                "description": "MDR Capped Amount",
+                "type": "Number"
+              },
+              {
+                "mandatory": true,
+                "values": [
+                  "Merchant",
+                  "Master"
+                ],
+                "_id": "60ccb73b44a6b3b83812e204",
+                "label": "Settlement Plan",
+                "description": "Settlement Plan",
+                "type": "List"
+              },
+              {
+                "mandatory": false,
+                "values": [
+                  "t+n",
+                  "Weekly",
+                  "Fortnightly",
+                  "Monthly"
+                ],
+                "_id": "60ccb73b44a6b3849312e205",
+                "label": "Settlement Cycle",
+                "description": "Settlement Cycle",
+                "type": "List"
+              },
+              {
+                "mandatory": false,
+                "values": [],
+                "_id": "60ccb73b44a6b31cb012e206",
+                "label": "t+n",
+                "description": "t+n",
+                "type": "String"
+              },
+              {
+                "mandatory": false,
+                "values": [],
+                "_id": "60ccb73b44a6b33f2b12e207",
+                "label": "weekly",
+                "description": "weekly",
+                "type": "String"
+              },
+              {
+                "mandatory": false,
+                "values": [],
+                "_id": "60ccb73b44a6b3042712e208",
+                "label": "monthly",
+                "description": "monthly",
+                "type": "String"
+              },
+              {
+                "mandatory": false,
+                "values": [
+                  "Master",
+                  "Merchant"
+                ],
+                "_id": "60ccb73b44a6b350cc12e209",
+                "label": "Commission Plan",
+                "description": "Commission Plan",
+                "type": "List"
+              },
+              {
+                "mandatory": true,
+                "values": [
+                  "Bronze",
+                  "Silver",
+                  "Gold",
+                  "Platinum"
+                ],
+                "_id": "60ccb73b44a6b3e62e12e20a",
+                "label": "Category",
+                "description": "Category",
+                "type": "List"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "partyRequest": {
+      "type": "object",
+      "properties": {
+        "dealRefId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "partyRefId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "kycCompleted": {
+          "type": "boolean"
+        },
+        "validFrom": {
+          "type": "string",
+          "format": "date"
+        },
+        "validUntil": {
+          "type": "string",
+          "format": "date"
+        },
+        "responsibility": {
+          "type": "string"
+        },
+        "contacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/partyRequest_contacts"
+          }
+        },
+        "accounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/partyRequest_accounts"
+          }
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/partyRequest_attributes"
+          }
+        }
+      },
+      "example": {
+        "party": {
+          "dealRefId": "GB-ES-0221-26",
+          "name": "John Doe",
+          "partyRefId": "1231010312301",
+          "status": "Active",
+          "kycCompleted": true,
+          "validFrom": "2021-02-25",
+          "validUntil": "2022-01-30",
+          "responsibility": "Merchant",
+          "contacts": [
+            {
+              "name": "John Doe",
+              "designation": "",
+              "authorizedSignatory": false,
+              "enableNotifications": true,
+              "workPhone": "9786445534",
+              "mobilePhone": "0435-978654",
+              "email": "john.doe@mail.com",
+              "address": {
+                "town": "Bengaluru",
+                "street": "Indiranagar",
+                "pincode": "560090",
+                "state": "KA",
+                "country": "IN"
+              }
+            }
+          ],
+          "accounts": [
+            {
+              "paymentInstrument": "Local Payment",
+              "description": "Payout Account",
+              "paymentDetails": {
+                "accountOrIban": "ACCOUNTNUMBER",
+                "to": "000101000110",
+                "beneficiaryName": "John Doe",
+                "beneficiaryBankBic": "ICICI010101",
+                "beneficiaryAddressLine1": "Indiranagar",
+                "beneficiaryAddressLine2": "",
+                "beneficiaryCountry": "IN",
+                "paymentType": "RTGS"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "label": "Country Of Incorporation",
+              "value": "IN"
+            },
+            {
+              "label": "Registered Address",
+              "value": "Indiranagar"
+            },
+            {
+              "label": "Zip_Pin",
+              "value": "560090"
+            },
+            {
+              "label": "Settlement Plan",
+              "value": "Merchant"
+            },
+            {
+              "label": "MDR Plan",
+              "value": "Merchant"
+            },
+            {
+              "label": "MDR Type",
+              "value": "Percentage"
+            },
+            {
+              "label": "MDR Percentage",
+              "value": 2.2
+            },
+            {
+              "label": "MDR Capped Amount",
+              "value": 20
+            },
+            {
+              "label": "Settlement Cycle",
+              "value": "T+N"
+            },
+            {
+              "label": "T+N",
+              "value": 2
+            }
+          ]
+        }
+      }
+    },
+    "partyResponse": {
+      "type": "object",
+      "properties": {
+        "dealRefId": {
+          "type": "string"
+        },
+        "partyRefId": {
+          "type": "string"
+        },
+        "partyId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "dealRefId": "US-ES-0221-26",
+        "partyRefId": "INVESTOR3",
+        "partyId": "US-ES-0221-26-INVESTOR3",
+        "status": "Active"
+      }
+    },
+    "fetchPartyResponse": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Page number of the response"
+        },
+        "pageCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Number of records in the current page"
+        },
+        "totalCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Total number of records matching the filter criteria. Returned only if totalCount is passed in query params as true"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/fetchPartyResponse_data"
+          }
+        }
+      },
+      "example": {
+        "page": 1,
+        "pageCount": 1,
+        "totalCount": 10,
+        "data": [
+          {
+            "party": {
+              "dealRefId": "GB-ES-0221-26",
+              "name": "John Doe",
+              "partyRefId": "1231010312301",
+              "status": "Active",
+              "kycCompleted": true,
+              "validFrom": "2021-02-25",
+              "validUntil": "2022-01-30",
+              "responsibility": "Merchant",
+              "contacts": [
+                {
+                  "name": "John Doe",
+                  "designation": "",
+                  "authorizedSignatory": false,
+                  "enableNotifications": true,
+                  "workPhone": "9786445534",
+                  "mobilePhone": "0435-978654",
+                  "email": "john.doe@mail.com",
+                  "address": {
+                    "town": "Bengaluru",
+                    "street": "Indiranagar",
+                    "pincode": "560090",
+                    "state": "KA",
+                    "country": "IN"
+                  }
+                }
+              ],
+              "accounts": [
+                {
+                  "paymentInstrument": "Local Payment",
+                  "description": "Payout Account",
+                  "paymentDetails": {
+                    "accountOrIban": "ACCOUNTNUMBER",
+                    "to": "000101000110",
+                    "beneficiaryName": "John Doe",
+                    "beneficiaryBankBic": "ICICI010101",
+                    "beneficiaryAddressLine1": "Indiranagar",
+                    "beneficiaryAddressLine2": "",
+                    "beneficiaryCountry": "IN",
+                    "paymentType": "RTGS"
+                  }
+                }
+              ],
+              "attributes": [
+                {
+                  "label": "Country Of Incorporation",
+                  "value": "IN"
+                },
+                {
+                  "label": "Registered Address",
+                  "value": "Indiranagar"
+                },
+                {
+                  "label": "Zip_Pin",
+                  "value": "560090"
+                },
+                {
+                  "label": "Settlement Plan",
+                  "value": "Merchant"
+                },
+                {
+                  "label": "MDR Plan",
+                  "value": "Merchant"
+                },
+                {
+                  "label": "MDR Type",
+                  "value": "Percentage"
+                },
+                {
+                  "label": "MDR Percentage",
+                  "value": 2.2
+                },
+                {
+                  "label": "MDR Capped Amount",
+                  "value": 20
+                },
+                {
+                  "label": "Settlement Cycle",
+                  "value": "T+N"
+                },
+                {
+                  "label": "T+N",
+                  "value": 2
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "holidaysResponse": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Page number of the response"
+        },
+        "pageCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Number of records in the current page"
+        },
+        "totalCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Total number of records matching the filter criteria. Returned only if totalCount is passed in query params as true"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/holidaysResponse_data"
+          }
+        }
+      },
+      "example": {
+        "page": 1,
+        "pageCount": 1,
+        "totalCount": 10,
+        "data": [
+          {
+            "_id": "HO1231",
+            "type": "user",
+            "location": {
+              "locationType": "country",
+              "locationId": "US"
+            },
+            "name": "H3",
+            "description": "te",
+            "date": "2021-06-20T00:00:00.000Z"
+          }
+        ]
+      }
+    },
+    "transactionRequest": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string",
+          "description": "Category of the transaction request. Data related to the category gets captured in transactionAttributes in creditTransactionInfo."
+        },
+        "workItem": {
+          "type": "boolean",
+          "description": "If Work item has to be created for the request"
+        },
+        "offerTo": {
+          "type": "string",
+          "description": "Offer to either Transaction Maker/ Transaction Checker/ Transaction Verifier"
+        },
+        "dealRefId": {
+          "type": "string",
+          "description": "Deal Reference ID against which the transaction is validated and created."
+        },
+        "initiatingParty": {
+          "$ref": "#/definitions/transactionRequest_initiatingParty"
+        },
+        "paymentInfo": {
+          "$ref": "#/definitions/transactionRequest_paymentInfo"
+        },
+        "creditTransactionInfo": {
+          "type": "array",
+          "description": "Split components of a transaction",
+          "items": {
+            "$ref": "#/definitions/transactionRequest_creditTransactionInfo"
+          }
+        }
+      },
+      "example": {
+        "category": "Financing",
+        "dealRefId": "US-ES-0221-26",
+		"workItem": true,
+		"offerTo": "TRANSACTIONMAKER",
+        "initiatingParty": {
+          "partyRefId": "BETACAPITAL"
+        },
+        "paymentInfo": {
+          "partyRefId": "BETACAPITAL",
+          "currency": "USD",
+          "country": "US",
+          "accountNumber": 12312300001,
+          "amount": 100,
+          "platformRefNo": "INVOICE120101",
+          "charges": "OUR"
+        },
+        "creditTransactionInfo": [
+          {
+            "fragmentPlatformRefNo": "1",
+            "requestedExecutionOn": "2021-08-27T10:00:00Z",
+            "status": "ACSP",
+            "account": {
+              "paymentInstrument": "paymentProfile",
+              "paymentDetails": {
+                "selectAccountIban": "ACCOUNTNUMBER",
+                "to": "000101000110",
+                "beneficiaryBic": "HDSBMY2P001",
+                "beneficiaryName": "Supplier 1",
+                "beneficiaryAddressLine1": "LA",
+                "beneficiaryAddressLine2": "",
+                "beneficiaryCountry": "US"
+              }
+            },
+            "amount": 95,
+            "transactionAttributes": [
+              {
+                "purposeOfPayment": "COMP",
+                "paymentType": "ACH",
+                "remittanceInformation": "Invoice Id 1230000123",
+                "buyerName": "Buyer",
+                "buyerCountryResidence": "US",
+                "buyerAddress": "No:4, Norway Street, USA"
+              }
+            ]
+          },
+          {
+            "fragmentPlatformRefNo": "2",
+            "requestedExecutionOn": "2021-08-27T10:00:00Z",
+            "beneficiaryType": "registered",
+            "participant": {
+              "partyRefId": "BETACAPITAL",
+              "beneficiaryCountry": "US"
+            },
+            "amount": 5,
+            "transactionAttributes": [
+              {
+                "purposeOfPayment": "COMP",
+                "paymentType": "ACH",
+                "remittanceInformation": "Invoice Id 1230000123",
+                "buyerName": "Buyer",
+                "buyerCountryResidence": "US",
+                "buyerAddress": "No:4, Norway Street, USA"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "transactionResponse": {
+      "type": "object",
+      "properties": {
+        "endToEndId": {
+          "type": "string",
+          "description": "Smart Contracts provided unique identifier for the transaction that is used further for operations like Hold, Release, Cancel"
+        },
+        "platformRefNo": {
+          "type": "string",
+          "description": "Client provided unique identifier"
+        },
+        "fragment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/transactionResponse_fragment"
+          }
+        }
+      },
+      "example": {
+        "endToEndId": "SC100630922",
+        "platformRefNo": "INVOICE120101",
+        "fragment": [
+          {
+            "fragmentPlatformRefNo": "1",
+            "scheduledOn": "2021-05-08T10:00:00.000Z",
+            "status": "SCHD"
+          },
+          {
+            "fragmentPlatformRefNo": "2",
+            "scheduledOn": "2021-05-08T10:00:00.000Z",
+            "status": "SCHD"
+          }
+        ]
+      }
+    },
+    "transactionErrorResponse": {
+      "type": "object",
+      "properties": {
+        "dealRefId": {
+          "type": "string",
+          "description": "Deal reference ID for which the transaction request was initiated"
+        },
+        "platformRefNo": {
+          "type": "string",
+          "description": "Client provided unique reference number"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/transactionErrorResponse_errors"
+          }
+        }
+      },
+      "example": {
+        "dealRefId": "US-ES-0221-26",
+        "platformRefNo": "INVOICE120101",
+        "errors": [
+          {
+            "code": "SC_ERR_TXN_BACKDATED",
+            "message": "Requested Execution On for some creditors is back dated"
+          }
+        ]
+      }
+    },
+    "transactionActionErrorResponse": {
+      "type": "object",
+      "properties": {
+        "endToEndId": {
+          "type": "string",
+          "description": "Smart Contracts provided unique identifier for the transaction"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/transactionErrorResponse_errors"
+          }
+        }
+      },
+      "example": {
+        "endToEndId": "SC100630922",
+        "errors": [
+          {
+            "code": "SC_ERR_TXN_STATUS_VALIDATION",
+            "message": "Transaction Already Executed"
+          }
+        ]
+      }
+    },
+    "fetchTransactionResponse": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Page number of the response"
+        },
+        "pageCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Number of records in the current page"
+        },
+        "totalCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Total number of records matching the filter criteria. Returned only if totalCount is passed in query params as true"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/fetchTransactionResponse_data"
+          }
+        }
+      },
+      "example": {
+        "page": 1,
+        "pageCount": 1,
+        "totalCount": 10,
+        "data": [
+          {
+            "category": "Financing",
+            "dealRefId": "US-ES-0221-26",
+            "initiatingParty": {
+              "partyRefId": "BETACAPITAL"
+            },
+            "paymentInfo": {
+              "partyRefId": "BETACAPITAL",
+              "currency": "USD",
+              "country": "US",
+              "accountNumber": 12312300001,
+              "amount": 100,
+              "platformRefNo": "PLATFORM100005",
+              "charges": "OUR"
+            },
+            "creditTransactionInfo": [
+              {
+                "fragmentPlatformRefNo": "1",
+                "requestedExecutionOn": "2021-08-27T10:00:00Z",
+                "status": "ACSP",
+                "account": {
+                  "paymentInstrument": "paymentProfile",
+                  "paymentDetails": {
+                    "selectAccountIban": "ACCOUNTNUMBER",
+                    "to": "000101000110",
+                    "beneficiaryBic": "HDSBMY2P001",
+                    "beneficiaryName": "Supplier 1",
+                    "beneficiaryAddressLine1": "LA",
+                    "beneficiaryAddressLine2": "",
+                    "beneficiaryCountry": "US"
+                  }
+                },
+                "amount": 95,
+                "transactionAttributes": [
+                  {
+                    "purposeOfPayment": "COMP",
+                    "paymentType": "ACH",
+                    "remittanceInformation": "Invoice Id 1230000123",
+                    "buyerName": "Buyer",
+                    "buyerCountryResidence": "US",
+                    "buyerAddress": "No:4, Norway Street, USA"
+                  }
+                ]
+              },
+              {
+                "fragmentPlatformRefNo": "2",
+                "requestedExecutionOn": "2021-08-27T10:00:00Z",
+                "status": "ACSP",
+                "beneficiaryType": "registered",
+                "participant": {
+                  "partyRefId": "BETACAPITAL",
+                  "beneficiaryCountry": "US"
+                },
+                "amount": 5,
+                "transactionAttributes": [
+                  {
+                    "purposeOfPayment": "COMP",
+                    "paymentType": "ACH",
+                    "remittanceInformation": "Invoice Id 1230000123",
+                    "buyerName": "Buyer",
+                    "buyerCountryResidence": "US",
+                    "buyerAddress": "No:4, Norway Street, USA"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "dealRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "businessSegment": {
+          "type": "string"
+        },
+        "duration": {
+          "$ref": "#/definitions/dealRequest_duration"
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/dealRequest_attributes_1"
+          }
+        },
+        "allowBeneficiaries": {
+          "type": "boolean"
+        }
+      },
+      "example": {
+        "name": "Car Purchase",
+        "shortName": "REG120001",
+        "timezone": "Asia/Singapore",
+        "country": "SG",
+        "businessSegment": "Business to Customer e-Commerce",
+        "duration": {
+          "start": {
+            "tz": "2021-06-20T00:00:00.000Z"
+          },
+          "end": {
+            "tz": "2021-07-20T00:00:00.000Z"
+          }
+        },
+        "attributes": [
+          {
+            "groupName": "Payment Configurations",
+            "description": "Payment Configurations",
+            "attributes": [
+              {
+                "label": "Retry Enabled",
+                "description": "Retry Enabled",
+                "value": "Yes"
+              },
+              {
+                "label": "Grouped payments",
+                "description": "Grouped payments",
+                "value": "Yes"
+              },
+              {
+                "label": "All or Nothing",
+                "description": "All or Nothing",
+                "value": "Yes"
+              },
+              {
+                "label": "Implicit Dependency",
+                "description": "Implicit Dependency",
+                "value": "Yes"
+              }
+            ]
+          },
+          {
+            "groupName": "Marketplace Commission by category - %",
+            "description": "Marketplace Commission by category - %",
+            "attributes": [
+              {
+                "label": "Electronics",
+                "description": "Electronics",
+                "value": 2
+              },
+              {
+                "label": "Apparel",
+                "description": "Apparel",
+                "value": 5
+              },
+              {
+                "label": "Kitchenware",
+                "description": "Kitchenware",
+                "value": 8
+              }
+            ]
+          },
+          {
+            "groupName": "Gateway Fixed fee by transaction value - USD",
+            "description": "Gateway Fixed fee by transaction value - USD",
+            "attributes": [
+              {
+                "label": "0-500",
+                "description": "0-500",
+                "value": 10
+              },
+              {
+                "label": "501-1000",
+                "description": "501-1000",
+                "value": 15
+              },
+              {
+                "label": "1001-*",
+                "description": "1001-*",
+                "value": 20
+              }
+            ]
+          },
+          {
+            "groupName": "Default settlement days by category",
+            "description": "Default settlement days by category",
+            "attributes": [
+              {
+                "label": "Platinum Seller",
+                "description": "Platinum Seller",
+                "value": 2
+              },
+              {
+                "label": "Gold Seller",
+                "description": "Gold Seller",
+                "value": 3
+              },
+              {
+                "label": "Silver Seller",
+                "description": "Silver Seller",
+                "value": 4
+              }
+            ]
+          }
+        ],
+        "allowBeneficiaries": true
+      }
+    },
+    "dealResponse": {
+      "type": "object",
+      "properties": {
+        "dealRefId": {
+          "type": "string"
+        }
+      },
+      "example": [
+        {
+          "dealRefId": "GB-ES-0221-26"
+        }
+      ]
+    },
+    "inline_response_400_errors": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "dealRefId": {
+          "type": "string"
+        }
+      }
+    },
+    "inline_response_400": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/inline_response_400_errors"
+          }
+        }
+      },
+      "example": "{errors=[{message=Attribute value not as per definition, code=SC_ERR_DEAL_ATTRIBUTE_VALIDATION}]}"
+    },
+    "inline_response_400_1": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/inline_response_400_errors"
+          }
+        }
+      },
+      "example": "{errors=[{message=Deal already paused, code=SC_ERR_DEAL_VALIDATION}], dealRefId=GB-ES-0221-26}"
+    },
+    "inline_response_400_2": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/inline_response_400_errors"
+          }
+        }
+      },
+      "example": "{errors=[{message=Deal is not paused, code=SC_ERR_DEAL_VALIDATION}], dealRefId=GB-ES-0221-26}"
+    },
+    "inline_response_400_3": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/inline_response_400_errors"
+          }
+        }
+      },
+      "example": "{errors=[{message=Transactions exist for the deal, code=SC_ERR_DEAL_TXN_VALIDATION}], dealRefId=GB-ES-0221-26}"
+    },
+    "inline_response_400_4": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/inline_response_400_errors"
+          }
+        }
+      },
+      "example": "{errors=[{message=Invalid Party Responsibility, code=SC_ERR_PARTY_INVALID_RESP}], dealRefId=GB-ES-0221-26}"
+    },
+    "inline_response_400_5": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/inline_response_400_errors"
+          }
+        }
+      },
+      "example": "{errors=[{message=Payment Details request validation failure for one or more accounts, code=SC_ERR_PARTY_ACCOUNT_VALIDATION}], dealRefId=GB-ES-0221-26}"
+    },
+    "inline_response_400_6": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/inline_response_400_errors"
+          }
+        }
+      },
+      "example": "{errors=[{message=Transactions exist for the party, code=SC_ERR_PARTY_ACCOUNT_VALIDATION}], dealRefId=GB-ES-0221-26}"
+    },
+    "inline_response_400_7_errors": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "dealRefId": {
+          "type": "string"
+        },
+        "partyRefId": {
+          "type": "string"
+        }
+      }
+    },
+    "inline_response_400_7": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/inline_response_400_7_errors"
+          }
+        }
+      },
+      "example": "{errors=[{message=IBAN validation failed, code=SC_ERR_PARTY_ACCOUNT_VALIDATION}], partyId=GB-ES-0221-26-123010021011}"
+    },
+    "inline_response_400_8": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/inline_response_400_errors"
+          }
+        }
+      },
+      "example": "{errors=[{message=Transactions exist for the account, code=SC_ERR_PARTY_ACCOUNT_VALIDATION}], partyId=GB-ES-0221-26-123010021011}"
+    },
+    "productResponse_attributes": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "_id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "order": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "productResponse_attributes_1": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "groupName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productResponse_attributes"
+          }
+        }
+      }
+    },
+    "productResponse_purposes": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "productResponse_data": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productResponse_attributes_1"
+          }
+        },
+        "purposes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productResponse_purposes"
+          }
+        }
+      }
+    },
+    "debitAccountRequest_extendedAttributes": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "businessSegmentsResponse_data": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "partyResponsibilitiesResponse_attributes": {
+      "type": "object",
+      "properties": {
+        "mandatory": {
+          "type": "boolean"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "_id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "partyResponsibilitiesResponse_data": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/partyResponsibilitiesResponse_attributes"
+          }
+        }
+      }
+    },
+    "partyRequest_address": {
+      "type": "object",
+      "properties": {
+        "town": {
+          "type": "string"
+        },
+        "street": {
+          "type": "string"
+        },
+        "pincode": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        }
+      }
+    },
+    "partyRequest_contacts": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "designation": {
+          "type": "string"
+        },
+        "authorizedSignatory": {
+          "type": "boolean"
+        },
+        "enableNotifications": {
+          "type": "boolean"
+        },
+        "workPhone": {
+          "type": "string"
+        },
+        "mobilePhone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "#/definitions/partyRequest_address"
+        }
+      }
+    },
+    "partyRequest_paymentDetails": {
+      "type": "object",
+      "properties": {
+        "accountOrIban": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "intermediaryBankBic": {
+          "type": "string",
+          "format": "nullable"
+        },
+        "beneficiaryBankBic": {
+          "type": "string"
+        },
+        "beneficiaryName": {
+          "type": "string"
+        },
+        "beneficiaryAddressLine1": {
+          "type": "string"
+        },
+        "beneficiaryAddressLine2": {
+          "type": "string"
+        },
+        "beneficiaryCountry": {
+          "type": "string"
+        },
+        "paymentType": {
+          "type": "string"
+        }
+      }
+    },
+    "partyRequest_accounts": {
+      "type": "object",
+      "properties": {
+        "paymentInstrument": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "paymentDetails": {
+          "$ref": "#/definitions/partyRequest_paymentDetails"
+        }
+      }
+    },
+    "partyRequest_attributes": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "fetchPartyResponse_party_accounts": {
+      "type": "object",
+      "properties": {
+        "paymentInstrumentId": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "paymentDetails": {
+          "$ref": "#/definitions/partyRequest_paymentDetails"
+        }
+      }
+    },
+    "fetchPartyResponse_party": {
+      "type": "object",
+      "properties": {
+        "dealRefId": {
+          "type": "string"
+        },
+        "partyId": {
+          "type": "string",
+          "format": "nullable"
+        },
+        "name": {
+          "type": "string"
+        },
+        "partyRefId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "kycCompleted": {
+          "type": "boolean"
+        },
+        "validFrom": {
+          "type": "string",
+          "format": "date"
+        },
+        "validUntil": {
+          "type": "string",
+          "format": "date"
+        },
+        "responsibility": {
+          "type": "string"
+        },
+        "contacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/partyRequest_contacts"
+          }
+        },
+        "accounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/fetchPartyResponse_party_accounts"
+          }
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/partyRequest_attributes"
+          }
+        }
+      }
+    },
+    "fetchPartyResponse_data": {
+      "type": "object",
+      "properties": {
+        "party": {
+          "$ref": "#/definitions/fetchPartyResponse_party"
+        }
+      }
+    },
+    "holidaysResponse_location": {
+      "type": "object",
+      "properties": {
+        "locationType": {
+          "type": "string"
+        },
+        "locationId": {
+          "type": "string"
+        }
+      }
+    },
+    "holidaysResponse_data": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "location": {
+          "$ref": "#/definitions/holidaysResponse_location"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        }
+      }
+    },
+    "transactionRequest_initiatingParty": {
+      "type": "object",
+      "properties": {
+        "partyRefId": {
+          "type": "string",
+          "description": "Transaction Initiating Party Reference ID"
+        }
+      },
+      "description": "Initiating party details."
+    },
+    "transactionRequest_paymentInfo": {
+      "type": "object",
+      "properties": {
+        "partyRefId": {
+          "type": "string",
+          "description": "Debit account Party Reference ID"
+        },
+        "currency": {
+          "type": "string",
+          "description": "Debit account currency"
+        },
+        "country": {
+          "type": "string",
+          "description": "Debit account country"
+        },
+        "accountNumber": {
+          "type": "string",
+          "description": "Account number in case the combination of PartyRefId+Country+Currency resolves more than 1 debit account"
+        },
+        "amount": {
+          "type": "number",
+          "description": "Total transaction amount"
+        },
+        "platformRefNo": {
+          "type": "string",
+          "description": "Platform unique reference ID"
+        },
+        "charges": {
+          "type": "string",
+          "description": "Transaction charges"
+        }
+      },
+      "description": "Debit details"
+    },
+    "transactionRequest_account_paymentDetails": {
+      "type": "object",
+      "properties": {
+        "selectAccountIban": {
+          "type": "string",
+          "description": "Whether the Account Number of IBAN will be passed",
+          "enum": [
+            "ACCOUNTNUMBER",
+            "IBAN"
+          ]
+        },
+        "to": {
+          "type": "string",
+          "description": "Account Number or IBAN as selected in selectAccountIban"
+        },
+        "beneficiaryName": {
+          "type": "string",
+          "description": "Beneficiary Name"
+        },
+        "beneficiaryBic": {
+          "type": "string",
+          "description": "Beneficiary Bank Identification Code"
+        },
+        "intermediaryBeneficiaryBic": {
+          "type": "string",
+          "description": "Intermediary Beneficiary Bank Identification Code in case of Telegraphic Transfer"
+        },
+        "beneficiaryAddressLine1": {
+          "type": "string",
+          "description": "Beneficiary Address"
+        },
+        "beneficiaryAddressLine2": {
+          "type": "string",
+          "description": "Beneficiary Address"
+        },
+        "beneficiaryCountry": {
+          "type": "string",
+          "description": "Beneficiary account country"
+        }
+      },
+      "description": "Account details"
+    },
+    "transactionRequest_account": {
+      "type": "object",
+      "properties": {
+        "paymentInstrument": {
+          "type": "string",
+          "description": "Payment instrument ID for the transaction, defaulted to PaymentProfile which will enable bank to resolve Payment Instrument at run time",
+          "default": "PaymentProfile"
+        },
+        "paymentDetails": {
+          "$ref": "#/definitions/transactionRequest_account_paymentDetails"
+        }
+      },
+      "description": "If beneficiaryType is unregistered, account details of the beneficiary will get passed in this object"
+    },
+    "transactionRequest_participant": {
+      "type": "object",
+      "properties": {
+        "partyRefId": {
+          "type": "string",
+          "description": "Participant Reference ID of the beneficiary"
+        },
+        "beneficiaryCountry": {
+          "type": "string",
+          "description": "Participant account country"
+        }
+      },
+      "description": "If beneficiaryType is registered, party identifier would be passed"
+    },
+    "transactionRequest_transactionAttributes": {
+      "type": "object",
+      "properties": {
+        "purposeOfPayment": {
+          "type": "string",
+          "description": "Purpose of payment for the fragment"
+        },
+        "paymentType": {
+          "type": "string",
+          "description": "Payment type for the particular fragment"
+        },
+        "remittanceInformation": {
+          "type": "string",
+          "description": "Remittance information for the fragment"
+        },
+        "buyerName": {
+          "type": "string",
+          "description": "Buyer name for the transaction"
+        },
+        "buyerCountryResidence": {
+          "type": "string",
+          "description": "Buyer country residence for the transaction"
+        },
+        "buyerAddress": {
+          "type": "string",
+          "description": "Buyer address for the transaction"
+        }
+      }
+    },
+    "transactionRequest_creditTransactionInfo": {
+      "type": "object",
+      "properties": {
+        "fragmentPlatformRefNo": {
+          "type": "string",
+          "description": "Fragment ID for the split component"
+        },
+        "requestedExecutionOn": {
+          "type": "string",
+          "description": "Date and time at which the transaction should be executed. If left blank, transaction would be executed immediately"
+        },
+        "status": {
+          "type": "string",
+          "description": "status of the fragment"
+        },
+        "account": {
+          "$ref": "#/definitions/transactionRequest_account"
+        },
+        "participant": {
+          "$ref": "#/definitions/transactionRequest_participant"
+        },
+        "amount": {
+          "type": "number",
+          "description": "Amount for the split fragment"
+        },
+        "transactionAttributes": {
+          "type": "array",
+          "description": "Metadata captured as per the category of the transaction",
+          "items": {
+            "$ref": "#/definitions/transactionRequest_transactionAttributes"
+          }
+        }
+      }
+    },
+    "transactionResponse_fragment": {
+      "type": "object",
+      "properties": {
+        "fragmentPlatformRefNo": {
+          "type": "string",
+          "description": "Client provided fragment identifier"
+        },
+        "scheduledOn": {
+          "type": "string",
+          "description": "Date and time in UTC at which the fragment is scheduled"
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of the fragment"
+        }
+      }
+    },
+    "transactionErrorResponse_errors": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Error code from Smart Contracts"
+        },
+        "message": {
+          "type": "string",
+          "description": "Description of the error"
+        }
+      }
+    },
+    "fetchTransactionResponse_initiatingParty": {
+      "type": "object",
+      "properties": {
+        "partyRefId": {
+          "type": "string",
+          "description": "Transaction Initiating Party Reference ID"
+        }
+      },
+      "description": "Initiating party details"
+    },
+    "fetchTransactionResponse_account_paymentDetails": {
+      "type": "object",
+      "properties": {
+        "selectAccountIban": {
+          "type": "string",
+          "description": "Whether the Account Number of IBAN will be passe",
+          "enum": [
+            "ACCOUNTNUMBER",
+            "IBAN"
+          ]
+        },
+        "to": {
+          "type": "string",
+          "description": "Account Number or IBAN as selected in selectAccountIban"
+        },
+        "beneficiaryName": {
+          "type": "string",
+          "description": "Beneficiary Name"
+        },
+        "beneficiaryBic": {
+          "type": "string",
+          "description": "Beneficiary Bank Bank Identification Code"
+        },
+        "intermediaryBeneficiaryBic": {
+          "type": "string",
+          "description": "Intermediary Beneficiary Bank Bank Identification Code in    case   of Telegraphic Transfer"
+        },
+        "beneficiaryAddressLine1": {
+          "type": "string",
+          "description": "Beneficiary Address"
+        },
+        "beneficiaryAddressLine2": {
+          "type": "string",
+          "description": "Beneficiary Address"
+        },
+        "beneficiaryCountry": {
+          "type": "string",
+          "description": "Beneficiary account country"
+        }
+      },
+      "description": "Account details"
+    },
+    "fetchTransactionResponse_account": {
+      "type": "object",
+      "properties": {
+        "paymentInstrumentId": {
+          "type": "string",
+          "description": "Payment instrument ID for the transaction, defaulted to     PaymentProfile which will enable bank to resolve Payment Instrument at run     time",
+          "default": "PaymentProfile"
+        },
+        "paymentDetails": {
+          "$ref": "#/definitions/fetchTransactionResponse_account_paymentDetails"
+        }
+      },
+      "description": "If beneficiaryType is unregistered, account details of the    beneficiary   will get passed in this object"
+    },
+    "fetchTransactionResponse_creditTransactionInfo": {
+      "type": "object",
+      "properties": {
+        "fragmentPlatformRefNo": {
+          "type": "string",
+          "description": "Fragment ID for the split component"
+        },
+        "requestedExecutionOn": {
+          "type": "string",
+          "description": "Date and time at which the transaction should be executed. If left blank, transaction would be executed immediately"
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of the fragment"
+        },
+        "account": {
+          "$ref": "#/definitions/fetchTransactionResponse_account"
+        },
+        "participant": {
+          "$ref": "#/definitions/transactionRequest_participant"
+        },
+        "amount": {
+          "type": "number",
+          "description": "Amount for the split fragment"
+        },
+        "transactionAttributes": {
+          "type": "array",
+          "description": "Metadata captured as per the category of the transaction",
+          "items": {
+            "$ref": "#/definitions/transactionRequest_transactionAttributes"
+          }
+        }
+      }
+    },
+    "fetchTransactionResponse_data": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string",
+          "description": "Category of the transaction request. Data related to the category gets      captured in transactionAttributes in creditTransactionInfo."
+        },
+        "dealRefId": {
+          "type": "string",
+          "description": "Deal Reference ID against which the transaction is validated and created."
+        },
+        "initiatingParty": {
+          "$ref": "#/definitions/fetchTransactionResponse_initiatingParty"
+        },
+        "paymentInfo": {
+          "$ref": "#/definitions/transactionRequest_paymentInfo"
+        },
+        "creditTransactionInfo": {
+          "type": "array",
+          "description": "Split components of a transaction",
+          "items": {
+            "$ref": "#/definitions/fetchTransactionResponse_creditTransactionInfo"
+          }
+        }
+      }
+    },
+    "dealRequest_duration_start": {
+      "type": "object",
+      "properties": {
+        "tz": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "dealRequest_duration_end": {
+      "type": "object",
+      "properties": {
+        "tz": {
+          "type": "string",
+          "format": "nullable"
+        }
+      }
+    },
+    "dealRequest_duration": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "$ref": "#/definitions/dealRequest_duration_start"
+        },
+        "end": {
+          "$ref": "#/definitions/dealRequest_duration_end"
+        }
+      }
+    },
+    "dealRequest_attributes": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "dealRequest_attributes_1": {
+      "type": "object",
+      "properties": {
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/dealRequest_attributes"
+          }
+        },
+        "groupName": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about appveen technologies",
+    "url": "https://www.appveen.com"
+  }
+}
